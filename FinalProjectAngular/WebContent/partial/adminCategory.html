@@ -1,0 +1,20 @@
+<div class="page-header" ng-init="adminCategoryCtrl.init()">
+
+
+	<div ng-show="adminDashboardCtrl.alert.status" align="center"
+				class="alert alert-warning">{{adminDashboardCtrl.alert.message}}</div>
+	
+	<table style="border-spacing: 15px; border-collapse: separate;">
+		<tr ng-repeat="project in adminCategoryCtrl.projects">
+			<td>{{ project.name }}</td>
+			<td><a ng-click="adminCategoryCtrl.viewProject({project})"
+					class="btn btn-primary"> View Project Details</a></td>
+			<td ng-show="project.deleted"><a  ng-click="adminCategoryCtrl.undeleteProject({project})"
+					class="btn btn-primary"> Undelete</a></td>
+			<td ng-show="!project.deleted" ><a ng-click="adminCategoryCtrl.deleteProject({project})"
+					class="btn btn-primary"> Delete</a></td>	
+			
+		</tr>
+	</table>
+	
+</div>

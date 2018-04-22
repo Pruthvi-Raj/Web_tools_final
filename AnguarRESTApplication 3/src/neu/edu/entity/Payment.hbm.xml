@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 28, 2017 7:49:59 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.Payment" table="payment" catalog="donationSystem" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="projects" class="neu.edu.entity.Projects" fetch="select">
+            <column name="project_id" />
+        </many-to-one>
+        <many-to-one name="userAccounts" class="neu.edu.entity.UserAccounts" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <many-to-one name="userPaymentInfo" class="neu.edu.entity.UserPaymentInfo" fetch="select">
+            <column name="user_payment_info_id" />
+        </many-to-one>
+        <property name="amount" type="java.lang.Integer">
+            <column name="amount" />
+        </property>
+        <property name="paymentDate" type="timestamp">
+            <column name="payment_date" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

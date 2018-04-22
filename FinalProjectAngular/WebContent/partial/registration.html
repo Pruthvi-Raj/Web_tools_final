@@ -1,0 +1,109 @@
+
+<div class='container'>
+	<div class='panel panel-primary dialog-panel'>
+		<div class='panel-heading'>
+			<h5>Registration</h5>
+		</div>
+		<div class='panel-body'>
+			<form class='form-horizontal' role='form'>
+				<div class="form-group">
+
+					<div ng-show="regCtrl.error" align="center"
+						class="col-sm-offset-2 col-sm-2 alert alert-danger">{{regCtrl.message}}</div>
+
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_title'>Name</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_name'
+									placeholder='Name' ng-model="regCtrl.registration.name"
+									type='text' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Username</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_username'
+									placeholder='Username' ng-model="regCtrl.registration.username"
+									type='text' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Password</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_password'
+									placeholder='Password' ng-model="regCtrl.registration.password"
+									type='password' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Email</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_email' placeholder='E-mail'
+									ng-model="regCtrl.registration.email" type='email' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Phone</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_phone'
+									placeholder='Phone: (xxx) - xxx xxxx' ng-model="regCtrl.registration.phone" type='number'  min="1000000000" max="9999999999">
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Role</label>
+					<div class='col-md-4'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<select class='form-control' id='id_title'
+									ng-model="regCtrl.registration.role">
+									<option value=1>Admin</option>
+									<option value=2>Creator</option>
+									<option value=3>Donor</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class='form-group'>
+					<div class='col-md-offset-4 col-md-3'>
+						<button class='btn btn-primary' ng-click="regCtrl.register()"
+							type='submit'>Register</button>
+					</div>
+					<div class='col-md-3'>
+						<button class='btn btn-danger' ng-click="regCtrl.cancel()"
+							style='float: right' type='submit'>Cancel</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

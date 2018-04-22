@@ -1,0 +1,43 @@
+<div class="page-header" ng-init="adminDashboardCtrl.init()">
+	{{adminDashboardCtrl.messageDash}}
+	{{adminDashboardCtrl.message}}
+	<form >
+		<div class="form-group">
+			<label for="name" class="control-label">Name</label>
+			<input type="text" class="form-control" placeholder="name"
+							id="name" ng-model="adminDashboardCtrl.category.name" required="required"/>
+			<label for="description" class="control-label">Description</label>
+			<input type="text" class="form-control" placeholder="description"
+							id="description" ng-model="adminDashboardCtrl.category.description"  required="required"/>
+			<button type="submit" ng-click="adminDashboardCtrl.add()"
+				class="btn btn-default">Add</button>
+		</div>
+	</form>
+		
+	<div ng-show="adminDashboardCtrl.error.status" align="center"
+				class="alert alert-danger">{{adminDashboardCtrl.error.message}}</div>
+	
+	<div ng-show="adminDashboardCtrl.success.success" align="center"
+				class="alert alert-success">{{adminDashboardCtrl.success.message}}</div>
+
+	<div ng-show="adminDashboardCtrl.alert.status" align="center"
+				class="alert alert-warning">{{adminDashboardCtrl.alert.message}}</div>
+	
+	<table style="border-spacing: 15px; border-collapse: separate;">
+		<tr ng-repeat="category in adminDashboardCtrl.categories">
+			<td>{{ category.name }}</td>
+			<td><a ng-click="adminDashboardCtrl.viewCategory({category})"
+					class="btn btn-primary"> View Projects</a></td>
+			<td ng-show="category.enabled"><a  ng-click="adminDashboardCtrl.disableCategory({category})"
+					class="btn btn-primary"> Disable</a></td>
+			<td ng-show="!category.enabled" ><a ng-click="adminDashboardCtrl.enableCategory({category})"
+					class="btn btn-primary"> Enable</a></td>
+			<td ng-show="category.deleted"><a  ng-click="adminDashboardCtrl.undeleteCategory({category})"
+					class="btn btn-primary"> Undelete</a></td>
+			<td ng-show="!category.deleted && category.isdeletable" ><a ng-click="adminDashboardCtrl.deleteCategory({category})"
+					class="btn btn-primary"> Delete</a></td>	
+			
+		</tr>
+	</table>
+	
+</div>

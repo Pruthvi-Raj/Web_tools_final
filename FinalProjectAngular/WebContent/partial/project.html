@@ -1,0 +1,73 @@
+<style >
+.container {
+  width: 70%;
+  background: #eee;
+  margin: 10px auto;
+  position: relative;
+  text-align:center;
+}
+
+.block {
+  background: #DCDCDC;
+  height: 100%;
+  width: 100%;
+  display:inline-block;
+  margin: 10px;
+  padding: 35px;
+}
+
+</style>
+<div class="page-header" ng-init="projectCtrl.init()">
+	<div class="container">
+		<div class="block" >Name: {{projectCtrl.project.name}}<br>
+							Description: {{projectCtrl.project.description}}<br>
+							Required Funds: {{projectCtrl.project.requiredFunds}}<br>
+							Acquired Funds:{{projectCtrl.project.acquiredFunds}}<br>
+			
+		</div>
+		<div class="block" > Returns
+				<table style="border-spacing: 15px; border-collapse: separate;">
+				<th>Amount to be paid</th>
+				<th>Returns</th>
+				<tr ng-repeat="return in projectCtrl.returns">
+					<td>{{return.amount}}</td>
+					<td>{{return.returnNum}}  {{return.returnDesc}}</td>
+					<td ng-show="!projectCtrl.project.deleted && projectCtrl.project.active && projectCtrl.isDonor">
+						<a ng-click="projectCtrl.pay(return)" class="btn btn-primary">Make a donation</a><br>
+					</td>
+				</tr><br>
+				</table>
+		</div>
+		<div class="block" > Comments
+				<table style="border-spacing: 15px; border-collapse: separate;">
+				<th>Name</th>
+				<th>Comment</th>
+				<tr ng-repeat="comment in projectCtrl.comments">
+					<td>{{comment.userId}}</td>
+					<td>{{comment.comments}}</td>
+				</tr><br>
+				</table>
+			<div ng-show="projectCtrl.isLoggedIn && projectCtrl.isDonor">
+				<form >
+					<div class="form-group">
+						<label for="name" class="control-label">Comment</label>
+						<input type="text" class="form-control" placeholder="comment"
+										id="comment" ng-model="projectCtrl.commentInput.comment" required="required"/>
+						<button type="submit" ng-click="projectCtrl.addComment()"
+							class="btn btn-default">Add</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="block" ng-show="projectCtrl.isLoggedIn && projectCtrl.isAdmin"> Payments
+			<table style="border-spacing: 15px; border-collapse: separate;">
+				<th>Name</th>
+				<th>Amount</th>
+				<tr ng-repeat="payment in projectCtrl.payments">
+					<td>{{payment.userName}}</td>
+					<td>{{payment.amount}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,62 @@
+	<style >
+.container {
+  width: 70%;
+  background: #eee;
+  margin: 10px auto;
+  position: relative;
+  text-align:center;
+}
+
+.block {
+  background: #DCDCDC;
+  height: 100%;
+  width: 100%;
+  display:inline-block;
+  margin: 10px;
+  padding: 20px;
+}
+
+</style>
+<div class="page-header" ng-init="reportsCtrl.init()">
+	<div class="container">
+		<div class="block">Payments in Projects<br/>
+			<canvas id="pie" class="chart chart-pie" 
+							chart-data="reportsCtrl.payments.data" 
+							chart-labels="reportsCtrl.payments.labels" 
+							chart-options="reportsCtrl.options">
+			</canvas> 
+			<table style="border-spacing: 15px; border-collapse: separate;">
+				<tr ng-repeat="payment in reportsCtrl.paymentsArr">
+					<td>{{ payment.name }}</td>
+					<td>{{payment.number}}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="block">Projects in Category<br/>
+			<canvas id="pie" class="chart chart-pie" 
+							chart-data="reportsCtrl.projects.data" 
+							chart-labels="reportsCtrl.projects.labels" 
+							chart-options="reportsCtrl.options">
+			</canvas> 
+			<table style="border-spacing: 15px; border-collapse: separate;">
+				<tr ng-repeat="project in reportsCtrl.projectsArr">
+					<td>{{ project.name }}</td>
+					<td>{{project.number}}</td>
+				</tr>
+			</table>
+		</div>
+		<div class="block">Comments in Projects<br/>
+			<canvas id="pie" class="chart chart-pie" 
+							chart-data="reportsCtrl.comments.data" 
+							chart-labels="reportsCtrl.comments.labels" 
+							chart-options="reportsCtrl.options">
+			</canvas> 
+			<table style="border-spacing: 15px; border-collapse: separate;">
+				<tr ng-repeat="comment in reportsCtrl.commentsArr">
+					<td>{{ comment.name }}</td>
+					<td>{{comment.number}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

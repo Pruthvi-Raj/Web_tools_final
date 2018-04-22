@@ -1,0 +1,200 @@
+<div class="page-header" ng-init="creatorDashboardCtrl.init()">
+<div class='container'>
+	<div class='panel panel-primary dialog-panel'>
+		<div class='panel-heading'>
+			<h5>Create Project</h5>
+		</div>
+		<div class='panel-body'>
+			<form class='form-horizontal' role='form'>
+				<div class="form-group">
+
+					<div ng-show="creatorDashboardCtrl.error" align="center"
+						class="col-sm-offset-2 col-sm-2 alert alert-danger">{{creatorDashboardCtrl.message}}</div>
+
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_title'>Name</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_name'
+									placeholder='Name' ng-model="creatorDashboardCtrl.project.name"
+									type='text' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Description</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_description'
+									placeholder='Description' ng-model="creatorDashboardCtrl.project.description"
+									type='text' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Required Funds</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_requiredFunds'
+									placeholder='Required Funds' ng-model="creatorDashboardCtrl.project.requiredFunds"
+									type='number' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Start Date</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_startDate' placeholder='Start Date'
+									ng-model="creatorDashboardCtrl.project.startDate" type='date' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>End Date</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_endDate' placeholder='End Date'
+									ng-model="creatorDashboardCtrl.project.endDate" type='date' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Donations Allowed</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<input class='form-control' id='id_donationsAllowed'
+									placeholder='Number of Donations Allowed' ng-model="creatorDashboardCtrl.project.donationsAllowed"
+									type='number' required="required">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Category</label>
+					<div class='col-md-4'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<select class='form-control' id='id_category'
+									ng-model="creatorDashboardCtrl.project.category">
+									<option ng-repeat="option in creatorDashboardCtrl.categories" value="{{option.id}}">{{option.name}}</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<label class='control-label col-md-2 col-md-offset-2'
+						for='id_email'>Returns</label>
+					<div class='col-md-6'>
+						<div class='form-group'>
+							<div class='col-md-11'>
+								<label class='control-label for='id_email'>Please Specify the returns below</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class = "returns">
+					<div class='form-group'>
+						<label class='control-label col-md-2 col-md-offset-2'
+							for='id_email'>Amount</label>
+						<div class='col-md-6'>
+							<div class='form-group'>
+								<div class='col-md-11'>
+									<input class='form-control' id='id_amount' placeholder='Amount for Returns'
+										ng-model="creatorDashboardCtrl.returns1.amount" type='number' required="required">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label class='control-label col-md-2 col-md-offset-2'
+							for='id_email'>Returns Number</label>
+						<div class='col-md-6'>
+							<div class='form-group'>
+								<div class='col-md-11'>
+									<input class='form-control' id='id_returnNumber' placeholder='Number of Returns'
+										ng-model="creatorDashboardCtrl.returns1.returnNumber" type='number' required="required">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label class='control-label col-md-2 col-md-offset-2'
+							for='id_email'>Returns Description</label>
+						<div class='col-md-6'>
+							<div class='form-group'>
+								<div class='col-md-11'>
+									<input class='form-control' id='id_returnDescription' placeholder='Returns Description'
+										ng-model="creatorDashboardCtrl.returns1.returnDescription" type='text' required="required">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label class='control-label col-md-2 col-md-offset-2'
+							for='id_email'>Amount</label>
+						<div class='col-md-6'>
+							<div class='form-group'>
+								<div class='col-md-11'>
+									<input class='form-control' id='id_amount' placeholder='Amount for Returns'
+										ng-model="creatorDashboardCtrl.returns2.amount" type='number' required="required">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label class='control-label col-md-2 col-md-offset-2'
+							for='id_email'>Returns Number</label>
+						<div class='col-md-6'>
+							<div class='form-group'>
+								<div class='col-md-11'>
+									<input class='form-control' id='id_returnNumber' placeholder='Number of Returns'
+										ng-model="creatorDashboardCtrl.returns2.returnNumber" type='number' required="required">
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class='form-group'>
+						<label class='control-label col-md-2 col-md-offset-2'
+							for='id_email'>Returns Description</label>
+						<div class='col-md-6'>
+							<div class='form-group'>
+								<div class='col-md-11'>
+									<input class='form-control' id='id_returnDescription' placeholder='Returns Description'
+										ng-model="creatorDashboardCtrl.returns2.returnDescription" type='text' required="required">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='form-group'>
+					<div class='col-md-offset-4 col-md-3'>
+						<button class='btn btn-primary' ng-click="creatorDashboardCtrl.addProject()"
+							type='submit'>Add Project</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</div>

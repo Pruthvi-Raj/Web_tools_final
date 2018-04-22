@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 28, 2017 7:49:59 AM by Hibernate Tools 5.2.1.Final -->
+<hibernate-mapping>
+    <class name="neu.edu.entity.Projects" table="projects" catalog="donationSystem" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="category" class="neu.edu.entity.Category" fetch="select">
+            <column name="category_id" />
+        </many-to-one>
+        <many-to-one name="userAccounts" class="neu.edu.entity.UserAccounts" fetch="select">
+            <column name="user_id" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="name" length="45" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" />
+        </property>
+        <property name="requiredFunds" type="java.lang.Integer">
+            <column name="required_funds" />
+        </property>
+        <property name="acquiredFunds" type="java.lang.Integer">
+            <column name="acquired_funds" />
+        </property>
+        <property name="startDate" type="timestamp">
+            <column name="start_date" length="19" />
+        </property>
+        <property name="endDate" type="timestamp">
+            <column name="end_date" length="19" />
+        </property>
+        <property name="donationsAllowed" type="java.lang.Integer">
+            <column name="donations_allowed" />
+        </property>
+        <property name="donationReceived" type="java.lang.Integer">
+            <column name="donation_received" />
+        </property>
+        <property name="isActive" type="java.lang.Byte">
+            <column name="is_active" />
+        </property>
+        <property name="isDeleted" type="java.lang.Byte">
+            <column name="is_deleted" />
+        </property>
+        <set name="returnses" table="returns" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="project_id" />
+            </key>
+            <one-to-many class="neu.edu.entity.Returns" />
+        </set>
+        <set name="commentses" table="comments" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="project_id" />
+            </key>
+            <one-to-many class="neu.edu.entity.Comments" />
+        </set>
+        <set name="payments" table="payment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="project_id" />
+            </key>
+            <one-to-many class="neu.edu.entity.Payment" />
+        </set>
+    </class>
+</hibernate-mapping>

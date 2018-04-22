@@ -1,0 +1,29 @@
+	<style >
+.container {
+  width: 70%;
+  background: #eee;
+  margin: 10px auto;
+  position: relative;
+  text-align:center;
+}
+
+.block {
+  background: #DCDCDC;
+  height: 100%;
+  width: 100%;
+  display:inline-block;
+  margin: 10px;
+  padding: 20px;
+}
+
+</style>
+<div class="page-header" ng-init="categoryCtrl.init()">
+	<div class="container">
+		<div ng-repeat="project in categoryCtrl.projects">
+			<div class="block">{{project.name}}<br/>
+				{{project.description}}<br/>
+				<a ng-click="categoryCtrl.viewProjects({project})" class="feature-content-link red-btn">View Project Details</a>
+			</div>
+		</div>
+	</div>
+</div>
